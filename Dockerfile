@@ -6,6 +6,7 @@ COPY requirements.txt /app/requirements.txt
 RUN pip install -r /app/requirements.txt
 
 COPY ./close_game.py /app/close_game.py
+COPY ./db.py /app/db.py
 
 ENV DB_CONN_STRING ''
 ENV MAKER_URL ''
