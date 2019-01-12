@@ -39,11 +39,11 @@ if __name__ == '__main__':
             if game['isGameActivated'] and game['period']['current'] >= CONFIG['period']:
 
                 clock = game['clock'].split(':')
-
+                
                 if len(clock) < 2:
-                    continue
-
-                minutes = int(clock[0])
+                    minutes = 0
+                else:
+                    minutes = int(clock[0])
 
                 pts_difference = abs(int(home['score']) - int(away['score']))
 
