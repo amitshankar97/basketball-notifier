@@ -8,7 +8,7 @@ RUN pip install -r /app/requirements.txt
 COPY ./close_game.py /app/close_game.py
 COPY ./db.py /app/db.py
 
-ENV DB_CONN_STRING ''
+ENV BASKETBALL_DB ''
 ENV MAKER_URL ''
 
 CMD python close_game.py
