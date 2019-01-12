@@ -2,6 +2,12 @@ import requests
 import os
 from db import DB
 
+CONFIG = {
+    'pt_differential': 10,
+    'mins_left': 6,
+    'period': 4
+}
+
 MAKER_URL = os.environ['MAKER_URL']
 NBA_BASE = 'https://data.nba.net/10s'
 INTERESTING_TEAMS = ['LAL', 'BOS', 'DAL', 'DEN', 'GSW', 'HOU', 'LAC', 'MEM', 'MIL', 'OKC', 'PHI', 'POR', 'TOR', 'UTA']
@@ -12,7 +18,7 @@ def sendNotification(team1, team2, time):
         'value2': team2,
         'value3': time
     }
-    
+
     r = requests.post(MAKER_URL, data=payload)
 
 def NBATodayScoreboard():
@@ -30,7 +36,7 @@ if __name__ == '__main__':
         away = game['vTeam']
 
         if home['triCode'] in INTERESTING_TEAMS or away['triCode'] in INTERESTING_TEAMS:
-            if game['isGameActivated'] and game['period']['current'] >= 4:
+            if game['isGameActivated'] and game['period']['current'] >= CONFIG['period']:
 
                 clock = game['clock'].split(':')
 
@@ -48,7 +54,7 @@ if __name__ == '__main__':
                 else:
                     period = str(current_period) + 'Q'
 
-                if minutes <= 6 and  pts_difference <= 10:
+                if minutes <= CONFIG['mins_left'] and pts_difference <= CONFIG['pt_differential']:
                     try:
                         mongo = DB()
                         db_game = mongo.find_game(game['gameId'])
