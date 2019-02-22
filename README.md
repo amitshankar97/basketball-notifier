@@ -41,7 +41,7 @@ $(which docker) * * * * * run --rm basketball-notifier
 
 IFTTT Webhook Configuration
 ----
-![IFTTT Configuration](./images/ifttt_config.jpg)
+<img src="./images/ifttt_config.jpg" height="688" width="400">
 
 <hr />
 
