@@ -23,3 +23,28 @@ CONFIG = {
     'period': 4
 }
 ```
+
+Build and run commands:
+---
+```bash
+docker build -t basketball-notifier ./
+docker run -it --rm basketball-notifier
+```
+
+cron command
+----
+```bash
+$(which docker) * * * * * run --rm basketball-notifier
+```
+
+<hr />
+
+IFTTT Webhook Configuration
+----
+![IFTTT Configuration](./images/ifttt_config.jpg)
+
+<hr />
+
+Notification Example
+----
+![Notification](./images/notification.jpg)

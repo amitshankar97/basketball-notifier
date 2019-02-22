@@ -10,6 +10,7 @@ class DB:
         self.db = db
         self.games = db['close-game-tracker']
         self.log = db['scrape-log']
+        self.exceptions = db['exceptions']
 
     def find_game(self, gameId):
         return self.games.find_one({'gameId': gameId})
@@ -21,4 +22,4 @@ class DB:
         self.log.insert_one({'time' : datetime.utcnow()})
 
     def logException(self, e):
-        self.log.insert_one({'exception': e})
+        self.exceptions.insert_one({'exception': e})
