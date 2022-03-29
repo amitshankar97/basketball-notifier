@@ -11,7 +11,7 @@ try:
 
     MAKER_URL = os.environ['MAKER_URL']
     NBA_BASE = 'https://data.nba.net/10s'
-    INTERESTING_TEAMS = ['LAL', 'BOS', 'DAL', 'DEN', 'GSW', 'HOU', 'LAC', 'MEM', 'MIL', 'OKC', 'PHI', 'POR', 'TOR', 'UTA']
+    INTERESTING_TEAMS = ['NYK', 'LAL', 'BOS', 'DAL', 'DEN', 'GSW', 'HOU', 'LAC', 'MEM', 'MIL', 'OKC', 'PHI', 'POR', 'TOR', 'UTA']
 
     def sendNotification(team1, team2, time):
         payload = {
